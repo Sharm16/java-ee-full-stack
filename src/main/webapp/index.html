@@ -28,29 +28,36 @@
     	<button ng-click="name='Jane'">Change name</button>
     </div>
      -->
-     
-    <!--
-    Example 3: ng-repeat and filters
+
+
     <div ng-init ="accounts=[{'firstName': 'John', 'secondName': 'Doe','accountNumber': '1234'},{'firstName': 'Jane','secondName': 'Doe','accountNumber': '1235'}]">
     	<h3><span>Simple example</span></h3>
     	<ul>
     		<li ng-repeat="account in accounts">{{account}}</li>
     	</ul>
-    	<h3><span>Table example</span></h3>
+        <input type="text" placeholder="Search First name" ng-model="searchf">
+        <input type="text" placeholder="Search Second name" ng-model="searchs">
+        <input type="text" placeholder="Search Account number" ng-model="searcha">
+        <button ng-click="f=searchf; s=searchs;a=searcha">Search</button>
+        <h3><span>Table example</span></h3>
     	<table>
     		<tr>
     			<th>first</th>
     			<th>second</th>
     			<th>number</th>
     		</tr>
-    		<tr ng-repeat="account in accounts">
+    		<tr ng-repeat="account in accounts|filter:{'firstName': f, 'secondName': s,'accountNumber': a }">
     			<td>{{account.firstName |  uppercase}}</td>
     			<td>{{account.secondName | uppercase}}</td>
     			<td>{{account.accountNumber}}</td>
-    		</tr>
+    		</tr>2
+
     	</table>
     </div>
-    -->
+
+
+
+
 	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
     <script src="scripts/jquery-2.1.4.min.js"></script>
     <script src="scripts/angular.min.js"></script>
